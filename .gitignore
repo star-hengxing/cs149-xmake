@@ -1,0 +1,7 @@
+.vs
+.vscode
+.xmake
+.cache
+
+# build
+build
