@@ -1,32 +1,49 @@
 # CS149 魔改版
 
-作业来自 -> [Stanford CS149, Fall 2022 PARALLEL COMPUTING](https://gfxcourses.stanford.edu/cs149/fall22)
+[English](doc/README-EN.md)
 
-只测试了 Windows，Linux/MAC 如果构建失败，那就直接用官方的 Makefile
+slides，代码，作业文档，都可以从官网获得：[Stanford CS149, Fall 2022 PARALLEL COMPUTING](https://gfxcourses.stanford.edu/cs149/fall22)。
+
+只测试了 Windows 和 Arch Linux，其他操作系统如果构建失败，那就用官方的 Makefile。
+
+# 依赖
+
+- [Xmake](https://xmake.io/#/zh-cn/guide/installation)
+- [ISPC](https://ispc.github.io/downloads.html)
+- [Clang](https://releases.llvm.org/download.html)（可选）
 
 # 快速开始
 
-自行下载 C++ 编译工具链，如 GCC/Clang/MSVC
+> 如果不使用 Clang 作为 C++ 编译器，不需要安装 llvm，并修改 xmake.lua 的 set_toolchains。
 
-在 Windows 上，可以考虑用 [Scoop](https://github.com/ScoopInstaller/Scoop)，然后直接
+## Windows
+
+推荐使用 [Scoop](https://github.com/ScoopInstaller/Scoop) 作为包管理。
 ```bash
 scoop install xmake ispc llvm
 ```
-> 如果不使用 Clang 作为 C++ 编译器，不需要安装 llvm，并修改 xmake.lua 的 set_toolchains，写入你要用的编译器
 
-也可以手动从官网下载
-- [Xmake](https://xmake.io/#/zh-cn/guide/installation)
-- [ispc](https://ispc.github.io/downloads.html)
+## Arch Linux
 
-部署完环境后，编译所有作业
 ```bash
-xmake
+sudo pacman -S ispc llvm
+paru xmake
 ```
-编译命令尽量和作业的 Makefile 一样，避免影响作业结果
 
-作业自带的一些运行命令请看作业目录内的文档
+## 构建
 
-- [作业1](doc/Assignment1.md)
+编译一下看看开发环境是否部署成功。
+```bash
+xmake build -w mandelbrot
+```
+编译命令尽量和作业内的 Makefile 一样，避免影响作业结果。
+
+已成功移植的作业：
+
+- [x] [作业1](doc/Assignment1.md)
+- [ ] 作业2
+- [ ] 作业3
+- [ ] 作业4
 
 # 学习资料
 
