@@ -4,12 +4,15 @@
 
 slides，代码，作业文档，都可以从官网获得：[Stanford CS149, Fall 2022 PARALLEL COMPUTING](https://gfxcourses.stanford.edu/cs149/fall22)。
 
-只测试了 Windows 和 Arch Linux，其他操作系统如果构建失败，那就用官方的 Makefile。
+只测试了 Windows，其他操作系统如果构建失败，那就用官方的 Makefile。
 
 # 依赖
 
 - [Xmake](https://xmake.io/#/zh-cn/guide/installation)
 - [ISPC](https://ispc.github.io/downloads.html)
+- [CUDA](https://developer.nvidia.com/cuda-downloads)
+- [Perl](https://www.perl.org/get.html)
+- [Python](https://www.python.org/downloads/)
 - [Clang](https://releases.llvm.org/download.html)（可选）
 
 # 快速开始
@@ -20,27 +23,28 @@ slides，代码，作业文档，都可以从官网获得：[Stanford CS149, Fal
 
 推荐使用 [Scoop](https://github.com/ScoopInstaller/Scoop) 作为包管理。
 ```bash
-scoop install xmake ispc llvm
-```
-
-## Arch Linux
-
-```bash
-sudo pacman -S ispc clang
-paru xmake
+scoop install xmake ispc cuda perl llvm python
 ```
 
 ## 构建
 
+- ispc 只用在作业1。
+- cuda 和 perl 只用在作业3。
+- 作业3依赖的 freeglut 库由 xmake 管理，如果库下载失败，查看[文档](https://xmake.io/#/zh-cn/package/remote_package?id=%e8%bf%9c%e7%a8%8b%e5%8c%85%e4%b8%8b%e8%bd%bd%e4%bc%98%e5%8c%96)。
+- 编译命令尽量和作业内的 Makefile 一样，避免影响作业结果。
+- 更详细的编译设置查看 doc 目录
+
 编译一下看看开发环境是否部署成功。
 ```bash
 xmake build -w mandelbrot
+xmake build -w mandelbrot_ispc
+xmake build -w cudaSaxpy
+xmake build -w render
 ```
-编译命令尽量和作业内的 Makefile 一样，避免影响作业结果。
 
 - [x] [作业1](doc/Assignment1.md)
 - [x] [作业2](doc/Assignment2.md)
-- [ ] 作业3
+- [x] [作业3](doc/Assignment3.md)
 - [ ] 作业4
 
 # 学习资料

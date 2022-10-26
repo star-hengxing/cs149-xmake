@@ -10,6 +10,8 @@ set_toolchains("clang")
 
 add_rules("mode.debug", "mode.releasedbg", "mode.release", "mode.minsizerel")
 
+add_requires("freeglut", {config = {shared = true}})
+
 if is_os("windows") then
     add_defines("_CRT_SECURE_NO_WARNINGS", "NOMINMAX")
 end

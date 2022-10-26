@@ -2,12 +2,15 @@
 
 slides, code, document, Both are available on the website: [Stanford CS149, Fall 2022 PARALLEL COMPUTING](https://gfxcourses.stanford.edu/cs149/fall22).
 
-Windows and Arch Linux can build, if another os failed to build, use official Makefile.
+Windows10 can build, if another os failed to build, use official Makefile.
 
 # Requirements
 
 - [Xmake](https://xmake.io/#/zh-cn/guide/installation)
 - [ISPC](https://ispc.github.io/downloads.html)
+- [CUDA](https://developer.nvidia.com/cuda-downloads)
+- [Perl](https://www.perl.org/get.html)
+- [Python](https://www.python.org/downloads/)
 - [Clang](https://releases.llvm.org/download.html)(Optional)
 
 # Getting Started
@@ -18,20 +21,16 @@ Windows and Arch Linux can build, if another os failed to build, use official Ma
 
 Recommended [Scoop](https://github.com/ScoopInstaller/Scoop) as a package Manager.
 ```bash
-scoop install xmake ispc llvm
-```
-
-## Arch Linux
-
-```bash
-sudo pacman -S ispc llvm
-paru xmake
+scoop install xmake ispc cuda perl llvm python
 ```
 
 ## Building
 
+The compile flag should be the same as the Makefile, to avoid affecting the result of the assignment.
+
 ```bash
 xmake build -w mandelbrot
+xmake build -w mandelbrot_ispc
+xmake build -w cudaSaxpy
+xmake build -w render
 ```
-
-The compile flag should be the same as the Makefile, to avoid affecting the result of the assignment.

@@ -12,3 +12,4 @@ target("common")
 
 includes("Assignment1")
 includes("Assignment2")
+includes("Assignment3")
