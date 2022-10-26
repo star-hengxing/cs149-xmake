@@ -26,7 +26,7 @@ scoop install xmake ispc llvm
 ## Arch Linux
 
 ```bash
-sudo pacman -S ispc llvm
+sudo pacman -S ispc clang
 paru xmake
 ```
 
@@ -38,10 +38,8 @@ xmake build -w mandelbrot
 ```
 编译命令尽量和作业内的 Makefile 一样，避免影响作业结果。
 
-已成功移植的作业：
-
 - [x] [作业1](doc/Assignment1.md)
-- [ ] 作业2
+- [x] [作业2](doc/Assignment2.md)
 - [ ] 作业3
 - [ ] 作业4
 

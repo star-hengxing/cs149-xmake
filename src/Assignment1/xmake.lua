@@ -1,17 +1,5 @@
 includes("ispc.lua")
 
-if is_os("windows") then
-    target("getopt")
-        set_kind("static")
-        add_includedirs("getopt-for-windows", {public = true})
-        add_files("getopt-for-windows/getopt.c")
-end
-
-target("common")
-    set_kind("static")
-    add_includedirs("common", {public = true})
-    add_files("common/*.cpp")
-
 target("mandelbrot")
     set_kind("binary")
     add_files("prog1_mandelbrot_threads/*.cpp")
@@ -26,7 +14,7 @@ target("mandelbrot")
         add_syslinks("m", "pthread")
     end
 
-    set_rundir("$(projectdir)/build")
+    set_rundir("prog1_mandelbrot_threads")
 
 target("myexp")
     set_kind("binary")
@@ -56,6 +44,8 @@ target("mandelbrot_ispc")
     elseif is_os("linux") then 
         add_syslinks("m", "pthread")
     end
+
+    set_rundir("prog3_mandelbrot_ispc")
 
 target("ISPC_sqrt")
     set_kind("object")
