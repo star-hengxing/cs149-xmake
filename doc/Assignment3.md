@@ -29,7 +29,7 @@ perl checker.pl scan
 
 ## Part 3: A Simple Circle Renderer
 
-`wingdi.h`与`circleRenderer.h`的 `enum SceneName`中`PATTERN`命名冲突，改成`PATTERN_`。
+`wingdi.h`与`circleRenderer.h`的`enum SceneName`中`PATTERN`命名冲突，改成`PATTERN_`。
 
 ```bash
 xmake run render
