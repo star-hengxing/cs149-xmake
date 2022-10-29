@@ -53,7 +53,8 @@ xmake run saxpy
 xmake run kmeans
 ```
 
-使用 python 对 kmeans 算法进行可视化，安装所需依赖。
+使用 python 对 kmeans 算法进行可视化，下载依赖。
+> 记得设置 pip 镜像或代理，参考：[Thanks Mirror](https://github.com/eryajf/Thanks-Mirror#pip)
 ```bash
 cd src/Assignment1/prog6_kmeans
 pip install -r requirements.txt
