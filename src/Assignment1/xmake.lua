@@ -94,3 +94,5 @@ target("kmeans")
     if is_os("linux") then 
         add_syslinks("m", "pthread")
     end
+
+    set_rundir("prog6_kmeans")

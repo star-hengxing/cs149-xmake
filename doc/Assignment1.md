@@ -47,6 +47,8 @@ xmake run saxpy
 
 ## 程序6
 
+没数据集，用代码内置的随机数据集。
+
 ```bash
 xmake run kmeans
 ```

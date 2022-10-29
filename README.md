@@ -32,7 +32,7 @@ scoop install xmake ispc cuda perl llvm python
 - cuda 和 perl 只用在作业3。
 - 作业3依赖的 freeglut 库由 xmake 管理，如果库下载失败，查看[文档](https://xmake.io/#/zh-cn/package/remote_package?id=%e8%bf%9c%e7%a8%8b%e5%8c%85%e4%b8%8b%e8%bd%bd%e4%bc%98%e5%8c%96)。
 - 编译命令尽量和作业内的 Makefile 一样，避免影响作业结果。
-- 更详细的编译设置查看 doc 目录。
+- 作业详细可以查看 doc 目录。
 
 编译一下看看开发环境是否部署成功。
 ```bash
