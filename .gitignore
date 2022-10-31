@@ -8,3 +8,4 @@ build
 *.ppm
 *.log
 *.png
+runtasks*
