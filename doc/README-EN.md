@@ -15,13 +15,15 @@ Windows10 can build, if another os failed to build, use official Makefile.
 
 # Getting Started
 
-> If you are not using Clang as the C++ compiler, you do not need to install llvm and modify xmake.lua set_toolchains.
+> If you don't want to use Clang as the C++ compiler, you don't need to install llvm and modify set_toolchains() in xmake.lua.
 
 ## Windows
 
+First download MSVC C++ toolchain from [https://visualstudio.microsoft.com/](https://visualstudio.microsoft.com/)
+
 Recommended [Scoop](https://github.com/ScoopInstaller/Scoop) as a package Manager.
 ```bash
-scoop install xmake ispc cuda perl llvm python
+scoop install xmake ispc cuda perl python llvm
 ```
 
 ## Building
