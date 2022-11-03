@@ -31,6 +31,9 @@ target("ISPC_mandelbrot")
     add_rules("utils.ispc")
     add_files("prog3_mandelbrot_ispc/*.ispc")
 
+    set_optimize("fastest")
+    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64", "--opt=disable-fma")
+
 target("mandelbrot_ispc")
     set_kind("binary")
     add_files("prog3_mandelbrot_ispc/*.cpp")
@@ -52,6 +55,9 @@ target("ISPC_sqrt")
     add_rules("utils.ispc")
     add_files("prog4_sqrt/*.ispc")
 
+    set_optimize("fastest")
+    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64")
+
 target("sqrt")
     set_kind("binary")
     add_files("prog4_sqrt/*.cpp")
@@ -69,6 +75,9 @@ target("ISPC_saxpy")
     set_kind("object")
     add_rules("utils.ispc")
     add_files("prog5_saxpy/*.ispc")
+
+    set_optimize("fastest")
+    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64")
 
 target("saxpy")
     set_kind("binary")
