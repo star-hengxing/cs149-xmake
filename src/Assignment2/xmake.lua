@@ -20,10 +20,10 @@ target("part_a")
     end
 
     after_build(function (target)
-        os.cp(target:targetfile(), "$(scriptdir)")
-        os.cd("$(scriptdir)")
+        os.cp(target:targetfile(), "$(projectdir)")
         -- rename
         os.mv(target:filename(), "runtasks" .. path.extension(target:filename()))
+        os.mv("runtasks" .. path.extension(target:filename()), "$(scriptdir)")
     end)
 
 target("part_b")
@@ -38,10 +38,10 @@ target("part_b")
     end
 
     after_build(function (target)
-        os.cp(target:targetfile(), "$(scriptdir)")
-        os.cd("$(scriptdir)")
+        os.cp(target:targetfile(), "$(projectdir)")
         -- rename
         os.mv(target:filename(), "runtasks" .. path.extension(target:filename()))
+        os.mv("runtasks" .. path.extension(target:filename()), "$(scriptdir)")
     end)
 
 target("asst2_test")
@@ -51,15 +51,16 @@ target("asst2_test")
         os.cd("$(scriptdir)")
         local name = "runtasks"
         local filename = name
-        if os.host("windows") then
+        if os.host() == "windows" then
             filename = name .. ".exe"
+        else
+            name = "./" .. name
         end
         assert(os.isfile(filename), "Should build part_a or part_b")
-        
+
         local test_names =
         {
             "simple_test_sync",
-            "simple_test_async",
             "ping_pong_equal",
             "ping_pong_unequal",
             "super_light",
@@ -71,6 +72,7 @@ target("asst2_test")
             "math_operations_in_tight_for_loop_reduction_tree",
             "spin_between_run_calls",
             "mandelbrot_chunked",
+            "simple_test_async",
             "ping_pong_equal_async",
             "ping_pong_unequal_async",
             "super_light_async",
@@ -86,7 +88,7 @@ target("asst2_test")
             "strict_diamond_deps_async",
             "strict_graph_deps_small_async",
             "strict_graph_deps_med_async",
-            "strict_graph_deps_large_async"
+            "strict_graph_deps_large_async",
         }
         
         for _, value in ipairs(test_names)
