@@ -1,4 +1,4 @@
-set_xmakever("2.7.2")
+set_xmakever("2.7.3")
 set_version("0.0.1")
 
 set_project("cs149")
@@ -10,7 +10,7 @@ set_toolchains("clang")
 
 add_rules("mode.debug", "mode.releasedbg", "mode.release", "mode.minsizerel")
 
-add_requires("freeglut", {config = {shared = true}})
+add_requires("freeglut", {configs = {shared = true}})
 
 if is_os("windows") then
     add_defines("_CRT_SECURE_NO_WARNINGS", "NOMINMAX")

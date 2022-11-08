@@ -1,5 +1,3 @@
-includes("ispc.lua")
-
 target("mandelbrot")
     set_kind("binary")
     add_files("prog1_mandelbrot_threads/*.cpp")
@@ -26,21 +24,16 @@ target("myexp")
         add_deps("getopt")
     end
 
-target("ISPC_mandelbrot")
-    set_kind("object")
-    add_rules("utils.ispc")
-    add_files("prog3_mandelbrot_ispc/*.ispc")
-
-    set_optimize("fastest")
-    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64", "--opt=disable-fma")
-
 target("mandelbrot_ispc")
     set_kind("binary")
+    add_rules("utils.ispc", {header_extension = "_ispc.h"})
+    add_files("prog3_mandelbrot_ispc/*.ispc")
     add_files("prog3_mandelbrot_ispc/*.cpp")
 
+    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64", "--opt=disable-fma")
     set_optimize("fastest")
 
-    add_deps("common", "ISPC_mandelbrot")
+    add_deps("common")
 
     if is_os("windows") then 
         add_deps("getopt")
@@ -50,42 +43,32 @@ target("mandelbrot_ispc")
 
     set_rundir("prog3_mandelbrot_ispc")
 
-target("ISPC_sqrt")
-    set_kind("object")
-    add_rules("utils.ispc")
-    add_files("prog4_sqrt/*.ispc")
-
-    set_optimize("fastest")
-    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64")
-
 target("sqrt")
     set_kind("binary")
+    add_rules("utils.ispc", {header_extension = "_ispc.h"})
+    add_files("prog4_sqrt/*.ispc")
     add_files("prog4_sqrt/*.cpp")
-    add_cxxflags("-march=native")
 
+    add_cxxflags("-march=native")
+    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64")
     set_optimize("fastest")
 
-    add_deps("common", "ISPC_sqrt")
+    add_deps("common")
 
     if is_os("linux") then 
         add_syslinks("m", "pthread")
     end
 
-target("ISPC_saxpy")
-    set_kind("object")
-    add_rules("utils.ispc")
-    add_files("prog5_saxpy/*.ispc")
-
-    set_optimize("fastest")
-    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64")
-
 target("saxpy")
     set_kind("binary")
+    add_rules("utils.ispc", {header_extension = "_ispc.h"})
+    add_files("prog5_saxpy/*.ispc")
     add_files("prog5_saxpy/*.cpp")
 
+    set_values("ispc.flags", "--target=avx2-i32x8", "--arch=x86-64")
     set_optimize("faster")
 
-    add_deps("common", "ISPC_saxpy")
+    add_deps("common")
 
     if is_os("linux") then 
         add_syslinks("m", "pthread")
@@ -94,8 +77,8 @@ target("saxpy")
 target("kmeans")
     set_kind("binary")
     add_files("prog6_kmeans/*.cpp")
-    add_cxxflags("-march=native")
 
+    add_cxxflags("-march=native")
     set_optimize("fastest")
 
     add_deps("common")

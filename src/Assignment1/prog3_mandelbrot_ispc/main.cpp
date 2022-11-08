@@ -3,8 +3,7 @@
 #include <getopt.h>
 
 #include "CycleTimer.h"
-// #include "mandelbrot_ispc.h"
-#include "mandelbrot.ispc.h"
+#include "mandelbrot_ispc.h"
 
 extern void mandelbrotSerial(
     float x0, float y0, float x1, float y1,

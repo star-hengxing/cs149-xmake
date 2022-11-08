@@ -2,8 +2,7 @@
 #include <algorithm>
 
 #include "CycleTimer.h"
-// #include "saxpy_ispc.h"
-#include "saxpy.ispc.h"
+#include "saxpy_ispc.h"
 
 extern void saxpySerial(int N, float a, float* X, float* Y, float* result);
 
@@ -66,10 +65,10 @@ int main() {
         minSerial = std::min(minSerial, endTime - startTime);
     }
 
-// printf("[saxpy serial]:\t\t[%.3f] ms\t[%.3f] GB/s\t[%.3f] GFLOPS\n",
-    //       minSerial * 1000,
-    //       toBW(TOTAL_BYTES, minSerial),
-    //       toGFLOPS(TOTAL_FLOPS, minSerial));
+printf("[saxpy serial]:\t\t[%.3f] ms\t[%.3f] GB/s\t[%.3f] GFLOPS\n",
+          minSerial * 1000,
+          toBW(TOTAL_BYTES, minSerial),
+          toGFLOPS(TOTAL_FLOPS, minSerial));
 
     //
     // Run the ISPC (single core) implementation

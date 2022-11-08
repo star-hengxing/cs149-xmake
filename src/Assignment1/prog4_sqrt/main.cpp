@@ -6,8 +6,7 @@
 #include <math.h>
 
 #include "CycleTimer.h"
-// #include "sqrt_ispc.h"
-#include "sqrt.ispc.h"
+#include "sqrt_ispc.h"
 
 using namespace ispc;
 
