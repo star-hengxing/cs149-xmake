@@ -10,6 +10,8 @@
 // are needed to determine if an intersection actually exists.  For
 // example, you could continue with actual point in circle tests, or
 // make a subsequent call to circleInBox().
+// Note: For a valid Box, you will want to use boxR >= boxL and 
+// boxT >= boxB. 
 __device__ __inline__ int
 circleInBoxConservative(
     float circleX, float circleY, float circleRadius,
@@ -35,6 +37,8 @@ circleInBoxConservative(
 // This is a true circle in box test.  It is more expensive than the
 // function circleInBoxConservative above, but it's 1/0 result is a
 // definitive result.
+// Note: For a valid Box, you will want to use boxR >= boxL and 
+// boxT >= boxB. 
 __device__ __inline__ int
 circleInBox(
     float circleX, float circleY, float circleRadius,
