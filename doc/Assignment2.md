@@ -17,10 +17,12 @@ xmake run part_b
 
 ## 测试
 
-在 xmake.lua 写了个脚本运行所有测试函数
+在 src/Assignment2/xmake.lua 写了个脚本运行所有测试函数
 ```
-xmake build <part_a/part_b>
-xmake run asst2_test
+xmake build part_a
+xmake run part_a_test
+xmake build part_b
+xmake run part_b_test
 ```
 
 ## 与官方实现对比
