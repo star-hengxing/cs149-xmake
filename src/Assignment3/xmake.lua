@@ -1,7 +1,6 @@
 set_optimize("fastest")
 
 add_cugencodes("compute_35")
-add_cuflags("-O3")
 
 if is_os("windows") then 
     add_deps("getopt")
