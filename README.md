@@ -45,7 +45,7 @@ xmake build -w render
 - [x] [作业1](doc/Assignment1.md)
 - [x] [作业2](doc/Assignment2.md)
 - [x] [作业3](doc/Assignment3.md)
-- [ ] 作业4
+- [x] [作业4](doc/Assignment4.md)
 
 # 学习资料
 

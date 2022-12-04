@@ -11,6 +11,11 @@ xmake f --cuda=C:/Users/<User>/scoop/apps/cuda
 ```bash
 xmake run cudaSaxpy
 ```
+比较
+```bash
+xmake run cudaSaxpy -n 20000000
+xmake run saxpy
+```
 
 ## Part 2: CUDA Warm-Up 2: Parallel Prefix-Sum
 
