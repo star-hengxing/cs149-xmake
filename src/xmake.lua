@@ -13,7 +13,4 @@ target("common")
 includes("Assignment1")
 includes("Assignment2")
 includes("Assignment3")
-
-if is_os("linux") then
-    includes("Assignment4")
-end
+includes("Assignment4")
