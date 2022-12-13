@@ -1,5 +1,4 @@
 set_xmakever("2.7.3")
-set_version("0.0.1")
 
 set_project("cs149")
 

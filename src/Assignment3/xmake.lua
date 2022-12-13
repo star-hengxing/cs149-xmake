@@ -23,3 +23,4 @@ target("render")
     add_files("render/*.cu")
 
     add_packages("freeglut")
+    set_rundir("render")
