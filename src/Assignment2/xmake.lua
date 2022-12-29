@@ -8,27 +8,21 @@ target("tutorial")
         add_syslinks("pthread")
     end
 
-target("part_a")
+-- target part_a and target part_b have same config
+for _, part in ipairs({"part_a", "part_b"}) do
+target(part)
     set_kind("binary")
-    add_includedirs("part_a", "../common", "tests")
-    add_files("part_a/*.cpp", "tests/main.cpp")
+    add_includedirs(part)
+    add_includedirs("../common", "tests")
+    add_files(part .. "/*.cpp")
+    add_files("tests/main.cpp")
 
     if is_os("windows") then 
         add_deps("getopt")
     elseif is_os("linux") then 
         add_syslinks("m", "pthread")
     end
-
-target("part_b")
-    set_kind("binary")
-    add_includedirs("part_a", "../common", "tests")
-    add_files("part_b/*.cpp", "tests/main.cpp")
-
-    if is_os("windows") then 
-        add_deps("getopt")
-    elseif is_os("linux") then 
-        add_syslinks("m", "pthread")
-    end
+end
 
 target("part_a_test")
     set_kind("phony")
@@ -67,7 +61,7 @@ target("part_b_test")
     on_run(function ()
         local test_names =
         {
-            "simple_test_async",
+            -- "simple_test_async",
             "ping_pong_equal_async",
             "ping_pong_unequal_async",
             "super_light_async",
