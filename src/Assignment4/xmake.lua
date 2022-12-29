@@ -1,15 +1,5 @@
-target("assignment4_common")
-    set_kind("static")
-    add_includedirs(".", {public = true})
-    add_files("common/*.cpp")
-
 set_symbols("debug")
 set_optimize("fastest")
-
-target("graphTools")
-    set_kind("binary")
-    add_files("tools/*.cpp")
-    add_deps("assignment4_common")
 
 function only_linux(target)
     if target:is_plat("linux") then
@@ -18,6 +8,16 @@ function only_linux(target)
         target:set("enabled", false)
     end
 end
+
+target("assignment4_common")
+    set_kind("static")
+    add_includedirs(".", {public = true})
+    add_files("common/*.cpp")
+
+target("graphTools")
+    set_kind("binary")
+    add_files("tools/*.cpp")
+    add_deps("assignment4_common")
 
 target("pr")
     set_kind("binary")
