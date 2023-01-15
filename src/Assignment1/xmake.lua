@@ -6,13 +6,14 @@ target("mandelbrot")
 
     add_deps("common")
 
-    if is_os("windows") then 
+    if is_plat("windows") then 
         add_deps("getopt")
-    elseif is_os("linux") then 
+    elseif is_plat("linux") then 
         add_syslinks("m", "pthread")
     end
 
     set_rundir("prog1_mandelbrot_threads")
+target_end()
 
 target("myexp")
     set_kind("binary")
@@ -20,9 +21,10 @@ target("myexp")
 
     set_optimize("none")
 
-    if is_os("windows") then
+    if is_plat("windows") then
         add_deps("getopt")
     end
+target_end()
 
 target("mandelbrot_ispc")
     set_kind("binary")
@@ -35,13 +37,14 @@ target("mandelbrot_ispc")
 
     add_deps("common")
 
-    if is_os("windows") then 
+    if is_plat("windows") then 
         add_deps("getopt")
-    elseif is_os("linux") then 
+    elseif is_plat("linux") then 
         add_syslinks("m", "pthread")
     end
 
     set_rundir("prog3_mandelbrot_ispc")
+target_end()
 
 target("sqrt")
     set_kind("binary")
@@ -55,9 +58,10 @@ target("sqrt")
 
     add_deps("common")
 
-    if is_os("linux") then 
+    if is_plat("linux") then 
         add_syslinks("m", "pthread")
     end
+target_end()
 
 target("saxpy")
     set_kind("binary")
@@ -70,9 +74,10 @@ target("saxpy")
 
     add_deps("common")
 
-    if is_os("linux") then 
+    if is_plat("linux") then 
         add_syslinks("m", "pthread")
     end
+target_end()
 
 target("kmeans")
     set_kind("binary")
@@ -83,8 +88,9 @@ target("kmeans")
 
     add_deps("common")
 
-    if is_os("linux") then 
+    if is_plat("linux") then 
         add_syslinks("m", "pthread")
     end
 
     set_rundir("prog6_kmeans")
+target_end()

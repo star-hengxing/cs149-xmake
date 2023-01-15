@@ -4,24 +4,26 @@ target("tutorial")
     set_kind("binary")
     add_files("tutorial/*.cpp")
 
-    if is_os("linux") then 
+    if is_plat("linux") then 
         add_syslinks("pthread")
     end
+target_end()
 
 -- target part_a and target part_b have same config
 for _, part in ipairs({"part_a", "part_b"}) do
-target(part)
-    set_kind("binary")
-    add_includedirs(part)
-    add_includedirs("../common", "tests")
-    add_files(part .. "/*.cpp")
-    add_files("tests/main.cpp")
+    target(part)
+        set_kind("binary")
+        add_includedirs(part)
+        add_includedirs("../common", "tests")
+        add_files(part .. "/*.cpp")
+        add_files("tests/main.cpp")
 
-    if is_os("windows") then 
-        add_deps("getopt")
-    elseif is_os("linux") then 
-        add_syslinks("m", "pthread")
-    end
+        if is_plat("windows") then 
+            add_deps("getopt")
+        elseif is_plat("linux") then 
+            add_syslinks("m", "pthread")
+        end
+    target_end()
 end
 
 target("part_a_test")
@@ -53,6 +55,7 @@ target("part_a_test")
         end
         cprint("${bright red}Pass!")
     end)
+target_end()
 
 target("part_b_test")
     set_kind("phony")
@@ -88,3 +91,4 @@ target("part_b_test")
         end
         cprint("${bright red}Pass!")
     end)
+target_end()
