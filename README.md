@@ -17,8 +17,6 @@ slides，代码，作业文档，都可以从官网获得：[Stanford CS149, Fal
 
 # 快速开始
 
-> 如果不使用 Clang 作为 C++ 编译器，不需要安装 llvm，并修改 xmake.lua 的 set_toolchains。
-
 ## Windows
 
 推荐使用 [Scoop](https://github.com/ScoopInstaller/Scoop) 作为包管理。
@@ -28,24 +26,24 @@ scoop install xmake ispc cuda perl llvm python
 
 ## 构建
 
+编译**所有作业**看看开发环境是否部署成功。
+
+```bash
+xmake -y
+```
+
 - ispc 只用在作业1。
 - cuda 和 perl 只用在作业3。
 - 作业3依赖的 freeglut 库由 xmake 管理，如果库下载失败，查看[文档](https://xmake.io/#/zh-cn/package/remote_package?id=%e8%bf%9c%e7%a8%8b%e5%8c%85%e4%b8%8b%e8%bd%bd%e4%bc%98%e5%8c%96)。
 - 编译命令尽量和作业内的 Makefile 一样，避免影响作业结果。
 - 作业详细可以查看 doc 目录。
 
-编译一下看看开发环境是否部署成功。
-```bash
-xmake build -w mandelbrot
-xmake build -w mandelbrot_ispc
-xmake build -w cudaSaxpy
-xmake build -w render
-```
+## 文档
 
-- [x] [作业1](doc/Assignment1.md)
-- [x] [作业2](doc/Assignment2.md)
-- [x] [作业3](doc/Assignment3.md)
-- [x] [作业4](doc/Assignment4.md)
+- [作业1](doc/Assignment1.md)
+- [作业2](doc/Assignment2.md)
+- [作业3](doc/Assignment3.md)
+- [作业4](doc/Assignment4.md)
 
 # 学习资料
 

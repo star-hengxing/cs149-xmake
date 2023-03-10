@@ -26,7 +26,7 @@ xmake run myexp --log
 
 ## 程序3
 
-程序3-5都使用了 ispc 进行编译，如果有不正确的地方，可能需要到 src/Assignment1/ispc.lua 修改编译参数。
+程序3-5都使用了 ispc 进行编译，如果有不正确的地方，可能需要到 src/Assignment1/xmake.lua 修改编译参数。
 
 ```bash
 xmake run mandelbrot_ispc
