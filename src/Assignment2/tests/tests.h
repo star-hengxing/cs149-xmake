@@ -1344,9 +1344,9 @@ TestResults strictGraphDepsTestBase(ITaskSystem*t, int n, int m, unsigned int se
     // Each StrictDependencyTask sets this when it is complete.
     bool *done = new bool[n]();
 
-    std::vector<int> idx_deps[n];
-    std::vector<bool*> flag_deps[n];
-    std::vector<TaskID> task_deps[n];
+    std::vector<std::vector<int>> idx_deps(n);
+    std::vector<std::vector<bool*>> flag_deps(n);
+    std::vector<std::vector<TaskID>> task_deps(n);
 
     // For keeping track of the TaskIDs returned by the task system.
     TaskID *task_ids = new TaskID[n];
