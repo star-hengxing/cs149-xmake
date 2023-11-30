@@ -1,5 +1,7 @@
 # Assignment 2: Building A Task Execution Library from the Ground Up
 
+`src/Assignment2/tests/tests.h` 使用了 vla 语法，msvc 编译不过，改成使用 vector。
+
 ## Part A: Synchronous Bulk Task Launch
 
 ```bash
@@ -9,7 +11,7 @@ xmake run part_a -n 8 mandelbrot_chunked
 
 ## Part B: Supporting Execution of Task Graphs
 
-因为两个作业都是一份 main 代码，所以运行命令同上就可
+因为两个作业都是一份 main 代码，所以运行命令同上就可。
 
 ```bash
 xmake run part_b
@@ -17,7 +19,8 @@ xmake run part_b
 
 ## 测试
 
-在 src/Assignment2/xmake.lua 写了个脚本运行所有测试函数
+在 src/Assignment2/xmake.lua 写了个脚本运行所有测试函数。
+
 ```
 xmake build part_a
 xmake run part_a_test
@@ -26,6 +29,7 @@ xmake run part_b_test
 ```
 
 ## 与官方实现对比
+
 因为官方没有提供 Windows 二进制，这一步测试需要 Linux/Mac 系统才能完成。
 
 ```bash
